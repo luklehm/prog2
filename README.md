@@ -1,7 +1,11 @@
 # Notenrechner
 
 ## Inhalt
-1. [Ausgangslage des Projektes](#ausgangslage-des-projektes)
+1. [Ausgangslage des Projektes](#ausgangslage-des-projekts)
+2. [Funktion/Projektidee](#funktionprojektidee)
+3. [Ablaufdiagramm](#flowdiagramm)
+4. [Anleitung/Walkthrough](#anleitung)
+5. [FAQ's](#faq)
 
 ## Ausgangslage des Projekts
 
@@ -17,3 +21,9 @@ sdklfjasdlf
 ## Flowdiagramm
 
 ![Flowchart](Beschreibung_Semesterarbeit.drawio.png)
+
+
+## Anleitung
+
+
+## FAQ
