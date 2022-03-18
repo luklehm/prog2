@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>meine tolle liste</title>
+</head>
+<body>
+      <ul>
+      {% for eintrag in html_elemente %}
+      <li>{{ eintrag }}</li>
+      {& endfor %}
+      </ul>
+
+</body>
+</html>
