@@ -3,9 +3,9 @@
 ## Inhalt
 1. [Ausgangslage des Projektes](#ausgangslage-des-projekts)
 2. [Funktion/Projektidee](#funktionprojektidee)
-3. [Ablaufdiagramm](#flowdiagramm)
-4. [Anleitung/Walkthrough](#anleitung)
-5. [FAQ's](#faq)
+3. [Flowdiagramm](#flowdiagramm)
+4. [Anleitung](#anleitung)
+5. [FAQ](#faq)
 
 ## Ausgangslage des Projekts
 
