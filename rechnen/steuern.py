@@ -3,6 +3,10 @@ def berechnen(betrag, prozent=10):
     ergebnis = betrag * (prozent / 100)
     return ergebnis
 
+def abgaben(betrag):
+    ergebnis = betrag * 0.1
+    return ergebnis
+
 # steuern_betrag = steuern(100)
 # print(steuern_betrag)
 #

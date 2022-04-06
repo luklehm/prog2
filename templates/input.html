@@ -1,0 +1,142 @@
+{% include "header.html" %}
+{% block content %}
+<body>
+<main>
+    <div class="container">
+        <h1>Notenrechner</h1>
+        <p class="fs-5 md-8">Behalte den Überblick über deine Module, Noten und ECTS. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+
+        <hr class="col-3 col-md-2 mb-5">
+
+        <div class="col-md-8 col-lg-8">
+        <h3 class="mb-3">Neue Note</h3>
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-sm-6 mb-4">
+              <label for="Name" class="form-label font-weight-bold">Name des Moduls</label>
+              <input name="Name" type="text" class="form-control" id="Name" placeholder="Programmierung 2" value="" required>
+              <div class="invalid-feedback">
+                Ungültiger Wert
+              </div>
+            </div>
+
+            <div class="col-sm-6 mb-4">
+              <label for="ECTS" class="form-label font-weight-bold">Anzahl ECTS</label>
+              <input name="ECTS" type="text" class="form-control" id="ECTS" placeholder="4">
+              <div class="invalid-feedback">
+                Ungültiger Wert
+              </div>
+            </div>
+
+            <div class="col-sm-6 mb-4">
+              <label for="Dozent" class="form-label font-weight-bold">Dozent</label>
+                <input name="dozent" type="text" class="form-control" id="Dozent" placeholder="Franz Müller" required>
+              <div class="invalid-feedback">
+                  Ungültiger Wert
+                </div>
+            </div>
+
+            <div class="col-sm-6 mb-4">
+              <label for="Leistungsnachweis" class="form-label font-weight-bold">Anzahl der Leistungsnachweise</label>
+              <input name="leistungsnachweis" type="email" class="form-control" id="Leistungsnachweis" placeholder="2">
+              <div class="invalid-feedback">
+                Ungültiger Wert
+              </div>
+            </div>
+
+            <div class="col-sm-6 mb-4">
+              <label for="Semester" class="form-label font-weight-bold">Semester</label>
+              <input name="semester" type="text" class="form-control" id="Semester" placeholder="3." required>
+              <div class="invalid-feedback">
+                Ungültiger Wert
+              </div>
+            </div>
+
+            <div class="col-sm-6 mb-4">
+              <label for="Note" class="form-label font-weight-bold">Note</label>
+              <input name="note" type="text" class="form-control" id="Note" placeholder="5.5">
+            </div>
+
+            <div class="col-sm-6 mb-4">
+              <label for="Gewichtung" class="form-label font-weight-bold">Gewichtung in Prozent</label>
+              <input name="gewichtung" type="text" class="form-control" id="Gewichtung" placeholder="100" required>
+              <div class="invalid-feedback">
+                Ungültiger Wert
+              </div>
+            </div>
+
+            <div class="col-12 mb-4">
+            <label class="form-label font-weight-bold">Vertiefungsrichtung</label><br>
+                <div class="form-check form-check-inline">
+                    <input name="vertiefungsrichtung" type="radio" class="form-check-input" id="category1" value="Sozial- und Methodenkompetenz">
+                    <label class="form-check-label" for="category1">Sozial- und Methodenkompetenz</label>
+                </div><br>
+                <div class="form-check form-check-inline">
+                    <input name="vertiefungsrichtung" type="radio" class="form-check-input" id="category2" value="Digital Innovation">
+                    <label class="form-check-label" for="category2">Digital Innovation</label>
+                </div><br>
+                <div class="form-check form-check-inline">
+                    <input name="vertiefungsrichtung" type="radio" class="form-check-input" id="category3" value="Information Technology">
+                    <label class="form-check-label" for="category3">Information Technology</label>
+                </div><br>
+                <div class="form-check form-check-inline">
+                    <input name="vertiefungsrichtung" type="radio" class="form-check-input" id="category4" value="User Experience">
+                    <label class="form-check-label" for="category3">User Experience</label>
+                </div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label font-weight-bold">Bewertung des Moduls</label><br>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="category1" name="bewertung" value="1">
+                    <label class="form-check-label" for="category1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="category2" name="bewertung" value="2">
+                    <label class="form-check-label" for="category1">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="category2" name="bewertung" value="3">
+                    <label class="form-check-label" for="category1">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="category2" name="bewertung" value="4">
+                    <label class="form-check-label" for="category1">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="category2" name="bewertung" value="5">
+                    <label class="form-check-label" for="category1">5</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="category2" name="bewertung" value="6">
+                    <label class="form-check-label" for="category1">6</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="category2" name="bewertung" value="7">
+                    <label class="form-check-label" for="category1">7</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="category2" name="bewertung" value="8">
+                    <label class="form-check-label" for="category1">8</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="category2" name="bewertung" value="9">
+                    <label class="form-check-label" for="category1">9</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" id="category2" name="bewertung" value="10">
+                    <label class="form-check-label" for="category1">10</label>
+                </div>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit" value="submit">Note zu meinen Noten hinzufügen</button>
+        </div>
+  </main>
+</body>
+{% endblock %}
+{% include "footer.html" %}
+</html>
