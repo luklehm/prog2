@@ -1,6 +1,5 @@
 from flask import Flask
 from flask import render_template
-from flask import url_for
 from flask import request
 import daten
 
@@ -12,6 +11,7 @@ from datetime import datetime
 
 app = Flask("Notenrechner")
 
+
 @app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
@@ -21,36 +21,48 @@ def home():
 
 @app.route("/input", methods=["GET", "POST"])
 def input():
-    if request.method == "POST":
-        name = request.form["name"]
-        ECTS = request.form["ECTS"]
-        dozent = request.form["dozent"]
-        leistungsnachweis = request.form["leistungsnachweis"]
-        semester = request.form["semester"]
-        note = request.form["note"]
-        gewichtung = request.form["gewichtung"]
-        vertiefungsrichtung = request.form["vertiefungsrichtung"]
-        bewertung = request.form["bewertung"]
-        daten.speichern(name, ECTS, dozent, leistungsnachweis, semester, note, gewichtung, vertiefungsrichtung, bewertung)
+    if request.method == 'POST':
+        name = request.form['name']
+        ects = request.form['ects']
+        dozent = request.form['dozent']
+        leistungsnachweis = request.form['leistungsnachweis']
+        semester = request.form['semester']
+        note = request.form['note']
+        gewichtung = request.form['gewichtung']
+        vertiefungsrichtung = request.form['vertiefungsrichtung']
+        bewertung = request.form['bewertung']
+        daten.speichern(name, ects, dozent, leistungsnachweis, semester, note, gewichtung, vertiefungsrichtung, bewertung)
 
-        eintrag_gespeichert = "Dein Eintrag wurde erfasst. Bei Bedarf kann nun ein weiterer Eintrag erfolgen."
+        eintrag_gespeichert = "Deine Note wurde erfasst. Bei Bedarf kann eine weitere Note hinzugefügt werden."
 
         return render_template('input.html', eintrag=eintrag_gespeichert)
 
     return render_template('input.html')
 
-@app.route("/form", methods=["get", "post"])
-def form():
-    if request.method.lower() == "get":
-        return render_template("formular.html")
-    if request.method.lower() == "post":
-        name = request.form["vorname"]
-        return name
 
-@app.route("/list")
-def auflistung():
-    elemente = ["bla", "blubber", "döner"]
-    return render_template("list.html", html_elemente=elemente)
+@app.route("/meine_noten", methods=["GET", "POST"])
+
+def meine_noten():
+    noten = daten.noten_laden()
+    filter_list = []
+    filter_value = ""
+    filter_key = ""
+    gefiltert = False
+'''
+    if request.method == 'POST':
+        gefiltert = True
+        semester = request.form['semester']
+
+        if semester != "":
+            filter_value = semester
+            filter_key = "Semester"
+
+        for key, eintrag in noten.items():
+            if eintrag[filter_key] == filter_value:
+                filter_list.append(eintrag)
+
+    return render_template("Meine_Noten.html", data=noten, user=filter_list, Semester=gefiltert)
+'''
 
 @app.route("/table")
 def tabelle():
@@ -109,9 +121,7 @@ def datum_anzeige():
         inhalt = open_file.read()
     return inhalt.replace("\n", "<br>")
 
-@app.route("/meine_noten")
-def meine_noten():
-    return render_template("Meine_Noten.html")
+
 
 @app.route("/about")
 def about():
