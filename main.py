@@ -25,13 +25,11 @@ def input():
         name = request.form['name']
         ects = request.form['ects']
         dozent = request.form['dozent']
-        leistungsnachweis = request.form['leistungsnachweis']
         semester = request.form['semester']
         note = request.form['note']
-        gewichtung = request.form['gewichtung']
         vertiefungsrichtung = request.form['vertiefungsrichtung']
         bewertung = request.form['bewertung']
-        daten.speichern(name, ects, dozent, leistungsnachweis, semester, note, gewichtung, vertiefungsrichtung, bewertung)
+        daten.speichern(name, ects, dozent, semester, note, vertiefungsrichtung, bewertung)
 
         eintrag_gespeichert = "Deine Note wurde erfasst. Bei Bedarf kann eine weitere Note hinzugefügt werden."
 
@@ -43,12 +41,12 @@ def input():
 @app.route("/meine_noten", methods=["GET", "POST"])
 
 def meine_noten():
-    noten = daten.noten_laden()
-    filter_list = []
+    eingabe = daten.noten_laden()
+    filter_liste = []
     filter_value = ""
     filter_key = ""
     gefiltert = False
-'''
+
     if request.method == 'POST':
         gefiltert = True
         semester = request.form['semester']
@@ -57,44 +55,12 @@ def meine_noten():
             filter_value = semester
             filter_key = "Semester"
 
-        for key, eintrag in noten.items():
+        for key, eintrag in eingabe.items():
             if eintrag[filter_key] == filter_value:
-                filter_list.append(eintrag)
+                filter_liste.append(eintrag)
 
-    return render_template("Meine_Noten.html", data=noten, user=filter_list, Semester=gefiltert)
-'''
+    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, Semester=gefiltert)
 
-@app.route("/table")
-def tabelle():
-    biere = [
-        {
-            "name": "Glatsch",
-            "herkunft": "Chur",
-            "vol": "4.8",
-            "brauerei": "Calanda",
-            "preis": 0.90
-        },
-        {
-            "name": "Retro",
-            "herkunft": "Luzern",
-            "vol": "4.8",
-            "brauerei": "Eichhof",
-            "preis": 2.00
-        },
-        {
-            "name": "Quöllfrisch",
-            "herkunft": "Appenzell",
-            "vol": "4.8",
-            "brauerei": "Locher",
-            "preis": 1.80
-        }
-    ]
-    for bier in biere:
-        preis = bier["preis"]
-        tax = berechnen(preis)
-        bier["steuern"] = tax
-    table_header = ["name", "herkunft", "vol", "brauberei", "preis", "steuern"]
-    return render_template("beer.html", beers=biere, header=table_header)
 
 @app.route("/demo_chf", methods=["get", "post"])
 def anderes():

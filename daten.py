@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 
 
-def speichern(name, ects, dozent, leistungsnachweis, semester, note, gewichtung, vertiefungsrichtung, bewertung):
+def speichern(name, ects, dozent, semester, note, vertiefungsrichtung, bewertung):
     datei = "eintrage.json"
     try:
         with open(datei) as open_file:
@@ -13,10 +13,8 @@ def speichern(name, ects, dozent, leistungsnachweis, semester, note, gewichtung,
     datei_inhalt[str(datetime.now())] = {'Name': name,
                                          'ECTS': ects,
                                          'Dozent': dozent,
-                                         'Leistungsnachweis': leistungsnachweis,
                                          'Semester': semester,
                                          'Note': note,
-                                         'Gewichtung': gewichtung,
                                          'Vertiefungsrichtung': vertiefungsrichtung,
                                          'Bewertung': bewertung}
 
