@@ -7,5 +7,23 @@
         "Note": "xy",
         "Vertiefungsrichtung": "on",
         "Bewertung": "3"
+    },
+    "2022-04-25 17:25:59.602040": {
+        "Name": "xy",
+        "ECTS": "xy",
+        "Dozent": "xy",
+        "Semester": "xy",
+        "Note": "xy",
+        "Vertiefungsrichtung": "Information Technology",
+        "Bewertung": "4"
+    },
+    "2022-04-25 17:33:47.470702": {
+        "Name": "22",
+        "ECTS": "22",
+        "Dozent": "22",
+        "Semester": "33",
+        "Note": "33",
+        "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
+        "Bewertung": "5"
     }
 }

@@ -49,17 +49,17 @@ def meine_noten():
 
     if request.method == 'POST':
         gefiltert = True
-        semester = request.form['semester']
+        vertiefung = request.form['vertiefungsrichtung']
 
-        if semester != "":
-            filter_value = semester
-            filter_key = "Semester"
+        if vertiefung != "":
+            filter_value = vertiefung
+            filter_key = "Vertiefungsrichtung"
 
         for key, eintrag in eingabe.items():
             if eintrag[filter_key] == filter_value:
                 filter_liste.append(eintrag)
 
-    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, Semester=gefiltert)
+    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert)
 
 
 @app.route("/demo_chf", methods=["get", "post"])
