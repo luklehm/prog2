@@ -23,6 +23,7 @@ Dieser soll es ermöglichen, seine Noten speichern zu können, diese in die vers
 ![Flowchart](Beschreibung_Semesterarbeit.drawio.png)
 
 
+
 ## Anleitung
 
 

@@ -76,22 +76,10 @@ def anderes():
             offene_datei.write(f"{now},{preis},{abgaben_betrag}\n")
         return render_template("preis.html", abgabe=abgaben_betrag)
 
-@app.route("/demo_euro")
-def egal_was_2():
-    abgaben_betrag = abgaben(400)
-    return f"{abgaben_betrag} €"
-
-@app.route("/datum")
-def datum_anzeige():
-    with open("jail_free_card.txt", encoding="utf8") as open_file:
-        inhalt = open_file.read()
-    return inhalt.replace("\n", "<br>")
-
-
 
 @app.route("/about")
 def about():
     return render_template("about.html")
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5001)
