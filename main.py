@@ -39,7 +39,6 @@ def input():
 
 
 @app.route("/meine_noten", methods=["GET", "POST"])
-
 def meine_noten():
     eingabe = daten.noten_laden()
     filter_liste = []
@@ -75,6 +74,33 @@ def anderes():
         with open("jail_free_card.txt", "a", encoding="utf8") as offene_datei:
             offene_datei.write(f"{now},{preis},{abgaben_betrag}\n")
         return render_template("preis.html", abgabe=abgaben_betrag)
+
+
+@app.route("/analyse", methods=['GET', 'POST'])
+def analyse():
+    analyse = daten.noten_laden()
+    vertiefung = {}
+
+    for key, value in analyse.items():
+        if not vertiefung.get():
+            vertiefung = float("Vertiefungsrichtung")
+        else:
+            vertiefung = vertiefung + float("Vertiefungsrichtung")
+
+    fig = px.bar(x=x, y=y, labels={"x": "Vertiefungsrichtung",
+                                   "y": "ECTS"},
+                 title="Anzahl ECTS pro Vertiefungsrichtung")
+
+    div = plot(fig, output_type="div")
+
+    summe_ects = list(vertiefung.values())
+    summe = 0
+    for einzel in summe_ects:
+        summe += float(einzel)
+
+
+
+    return render_template("analyse.html")
 
 
 @app.route("/about")
