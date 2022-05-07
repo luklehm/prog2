@@ -25,5 +25,14 @@
         "Note": "5",
         "Vertiefungsrichtung": "Information Technology",
         "Bewertung": "5"
+    },
+    "2022-05-07 16:13:39.809000": {
+        "Name": "Design Thinking",
+        "ECTS": "4",
+        "Dozent": "Hans P.",
+        "Semester": "4.",
+        "Note": "6",
+        "Vertiefungsrichtung": "Digital Innovation",
+        "Bewertung": "6"
     }
 }

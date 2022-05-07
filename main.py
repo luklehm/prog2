@@ -72,6 +72,9 @@ def meine_noten():
         else:
             total_ects[ects] = float(total_ects[ects]) + float(values['ECTS'])
 
+    for key, value in total_ects.items():
+        total = value
+
     durchschnitt_noten = {}
     for key, values in eingabe.items():
         note = str(values['ECTS'])
@@ -80,10 +83,17 @@ def meine_noten():
             durchschnitt_noten[note] = float(values['Note'])
         else:
             durchschnitt_noten[note] = float(durchschnitt_noten[note]) + float(values['Note'])
-    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, total_ects=total_ects, durchschnitt_noten=durchschnitt_noten)
+
+    for key, value in durchschnitt_noten.items():
+        durchschnitt = float(value) / float(total) #Das funktioniert so noch nicht, ich rechne hier die Noten gesamt durch die ECTS gesamt
+        #Man muss aber die Noten gesammt durch die Anzahl Einträge rechnen.
+
+
+    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, total_ects=total_ects, durchschnitt=durchschnitt)
 
 
 # Da habe ich keine Ahnung was schreiben und muss ich morgen selbst nochmal anschauen
+# Sollte jetzt soweit gehen aber idk
 
 @app.route("/analyse", methods=['GET', 'POST'])
 def analyse():
