@@ -2,6 +2,11 @@ from flask import Flask
 from flask import render_template
 from flask import request
 import daten
+import plotly.express as px
+from plotly.offline import plot
+import pandas as pd
+
+
 
 
 from rechnen.steuern import berechnen
@@ -75,9 +80,47 @@ def anderes():
             offene_datei.write(f"{now},{preis},{abgaben_betrag}\n")
         return render_template("preis.html", abgabe=abgaben_betrag)
 
+# Da habe ich keine Ahnung was schreiben und muss ich morgen selbst nochmal anschauen
 
 @app.route("/analyse", methods=['GET', 'POST'])
 def analyse():
+    analyse = daten.noten_laden()
+    ects = {}
+
+    for key, values in analyse.items():
+        vertiefung_ = values['Vertiefungsrichtung']
+
+        if not ects.get(vertiefung_):
+            ects[vertiefung_] = float(values['ECTS'])
+        else:
+            ects[vertiefung_] = float(ects[vertiefung_]) + float(values['ECTS'])
+
+
+    x = list(ects.keys())
+    y = list(ects.values())
+
+    fig = px.bar(x=x, y=y, labels={"x": "Vertiefungsrichtung",
+                                   "y": "ECTS"},
+                 title="Anzahl ECTS pro Vertiefungsrichtung")
+
+    div = plot(fig, output_type="div")
+    return render_template("analyse.html", div=div)
+
+
+"""
+    return x
+
+
+    fig = px.bar(x=x, y=y, labels={"x": "Monate",
+                                   "y": "Betrag in CHF"},
+                 title="Ausgaben über die Monate hinweg")
+
+
+
+    fig = px.bar(x=x, y=y, )
+    div = plot()
+
+    
     analyse = daten.noten_laden()
     vertiefung = {}
 
@@ -98,14 +141,17 @@ def analyse():
     for einzel in summe_ects:
         summe += float(einzel)
 
+    ECTS = 0
+    if request.method == 'POST':
 
+    # gehört ins rendertemplate für die attribute, viz_div=div, vertiefung=vertiefung, total=summe
 
     return render_template("analyse.html")
-
+    """
 
 @app.route("/about")
 def about():
     return render_template("about.html")
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5000)

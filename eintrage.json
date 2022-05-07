@@ -1,29 +1,47 @@
 {
-    "2022-04-25 17:16:35.928819": {
-        "Name": "xy",
-        "ECTS": "xy",
-        "Dozent": "xy",
-        "Semester": "xy",
-        "Note": "xy",
-        "Vertiefungsrichtung": "on",
+    "2022-05-07 11:06:05.263972": {
+        "Name": "x",
+        "ECTS": "4",
+        "Dozent": "x",
+        "Semester": "x",
+        "Note": "x",
+        "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
         "Bewertung": "3"
     },
-    "2022-04-25 17:25:59.602040": {
-        "Name": "xy",
-        "ECTS": "xy",
-        "Dozent": "xy",
-        "Semester": "xy",
-        "Note": "xy",
+    "2022-05-07 11:06:25.634794": {
+        "Name": "x",
+        "ECTS": "4",
+        "Dozent": "x",
+        "Semester": "x",
+        "Note": "x",
         "Vertiefungsrichtung": "Information Technology",
-        "Bewertung": "4"
+        "Bewertung": "3"
     },
-    "2022-04-25 17:33:47.470702": {
-        "Name": "22",
-        "ECTS": "22",
-        "Dozent": "22",
-        "Semester": "33",
-        "Note": "33",
+    "2022-05-07 11:07:13.142534": {
+        "Name": "x",
+        "ECTS": "4",
+        "Dozent": "x",
+        "Semester": "x",
+        "Note": "x",
+        "Vertiefungsrichtung": "Digital Innovation",
+        "Bewertung": "3"
+    },
+    "2022-05-07 11:07:24.155592": {
+        "Name": "x",
+        "ECTS": "4",
+        "Dozent": "x",
+        "Semester": "x",
+        "Note": "x",
+        "Vertiefungsrichtung": "User Experience",
+        "Bewertung": "3"
+    },
+    "2022-05-07 11:07:41.624611": {
+        "Name": "x",
+        "ECTS": "4",
+        "Dozent": "x",
+        "Semester": "x",
+        "Note": "x",
         "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
-        "Bewertung": "5"
+        "Bewertung": "3"
     }
 }
