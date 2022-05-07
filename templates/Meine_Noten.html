@@ -28,9 +28,6 @@
                 </div>
             </div>
             <br>
-            <div>
-                <a class="nav-item nav-link col-sm-4 mb-4 w-40 btn btn btn-lg" href="{{ url_for('analyse') }}" role="button" type="submit">Noten analysieren</a>
-            </div>
         </form><br>
 
         <div class="column">
@@ -52,7 +49,7 @@
               {% for inhalt in user %}
                     <tr>
                         {% for key, value in inhalt.items()%}
-                      <td>{{ value }}</td>
+                        <td>{{ value }}</td>
                         {% endfor %}
                     </tr>
               {% endfor %}
@@ -87,10 +84,30 @@
                 <!--</div>-->
                 {% endfor %}
             </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="row">Total</th>
+                    {% for key, value in total_ects.items() %}
+                    <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <th scope="row">Durchschnitt</th>
+                    {% for key, value in durchschnitt_noten.items() %}
+                    <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            </tfoot>
         {% endif %}
         </table>
+        <br>
+        <div>
+            <a class="nav-item nav-link col-sm-3 mb-4 w-40 btn btn btn-lg" href="{{ url_for('analyse') }}" role="button" type="submit">Noten analysieren</a>
+        </div>
     </main>
 {% endblock %}
+
+
 
 </body>
 <br>

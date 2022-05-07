@@ -1,47 +1,29 @@
 {
-    "2022-05-07 11:06:05.263972": {
-        "Name": "x",
+    "2022-05-07 15:30:35.882573": {
+        "Name": "Prog",
         "ECTS": "4",
-        "Dozent": "x",
-        "Semester": "x",
-        "Note": "x",
+        "Dozent": "Franz M.",
+        "Semester": "3.",
+        "Note": "4",
         "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
-        "Bewertung": "3"
+        "Bewertung": "4"
     },
-    "2022-05-07 11:06:25.634794": {
-        "Name": "x",
+    "2022-05-07 15:31:31.217869": {
+        "Name": "UX/UI",
         "ECTS": "4",
-        "Dozent": "x",
-        "Semester": "x",
-        "Note": "x",
-        "Vertiefungsrichtung": "Information Technology",
-        "Bewertung": "3"
-    },
-    "2022-05-07 11:07:13.142534": {
-        "Name": "x",
-        "ECTS": "4",
-        "Dozent": "x",
-        "Semester": "x",
-        "Note": "x",
-        "Vertiefungsrichtung": "Digital Innovation",
-        "Bewertung": "3"
-    },
-    "2022-05-07 11:07:24.155592": {
-        "Name": "x",
-        "ECTS": "4",
-        "Dozent": "x",
-        "Semester": "x",
-        "Note": "x",
+        "Dozent": "Josef M.",
+        "Semester": "4.",
+        "Note": "5",
         "Vertiefungsrichtung": "User Experience",
-        "Bewertung": "3"
+        "Bewertung": "5"
     },
-    "2022-05-07 11:07:41.624611": {
-        "Name": "x",
+    "2022-05-07 15:32:37.036092": {
+        "Name": "Requirement Engineering ",
         "ECTS": "4",
-        "Dozent": "x",
-        "Semester": "x",
-        "Note": "x",
-        "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
-        "Bewertung": "3"
+        "Dozent": "Sandra Z.",
+        "Semester": "4.",
+        "Note": "5",
+        "Vertiefungsrichtung": "Information Technology",
+        "Bewertung": "5"
     }
 }

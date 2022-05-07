@@ -43,7 +43,7 @@ def input():
     return render_template('input.html')
 
 
-@app.route("/meine_noten", methods=["GET", "POST"])
+@app.route("/meine_noten", methods=['GET', 'POST'])
 def meine_noten():
     eingabe = daten.noten_laden()
     filter_liste = []
@@ -63,22 +63,25 @@ def meine_noten():
             if eintrag[filter_key] == filter_value:
                 filter_liste.append(eintrag)
 
-    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert)
+    total_ects = {}
+    for key, values in eingabe.items():
+        ects = values['ECTS']
 
+        if not total_ects.get(ects):
+            total_ects[ects] = float(values['ECTS'])
+        else:
+            total_ects[ects] = float(total_ects[ects]) + float(values['ECTS'])
 
-@app.route("/demo_chf", methods=["get", "post"])
-def anderes():
-    if request.method.lower() == "get":
-        return render_template("preis.html")
-    if request.method.lower() == "post":
-        preis = request.form["Preis"]
-        preis = float(preis)
-        abgaben_betrag = abgaben(preis)
+    durchschnitt_noten = {}
+    for key, values in eingabe.items():
+        note = str(values['ECTS'])
 
-        now = datetime.now()
-        with open("jail_free_card.txt", "a", encoding="utf8") as offene_datei:
-            offene_datei.write(f"{now},{preis},{abgaben_betrag}\n")
-        return render_template("preis.html", abgabe=abgaben_betrag)
+        if not durchschnitt_noten.get(note):
+            durchschnitt_noten[note] = float(values['Note'])
+        else:
+            durchschnitt_noten[note] = float(durchschnitt_noten[note]) + float(values['Note'])
+    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, total_ects=total_ects, durchschnitt_noten=durchschnitt_noten)
+
 
 # Da habe ich keine Ahnung was schreiben und muss ich morgen selbst nochmal anschauen
 
@@ -104,50 +107,9 @@ def analyse():
                  title="Anzahl ECTS pro Vertiefungsrichtung")
 
     div = plot(fig, output_type="div")
+    
     return render_template("analyse.html", div=div)
 
-
-"""
-    return x
-
-
-    fig = px.bar(x=x, y=y, labels={"x": "Monate",
-                                   "y": "Betrag in CHF"},
-                 title="Ausgaben über die Monate hinweg")
-
-
-
-    fig = px.bar(x=x, y=y, )
-    div = plot()
-
-    
-    analyse = daten.noten_laden()
-    vertiefung = {}
-
-    for key, value in analyse.items():
-        if not vertiefung.get():
-            vertiefung = float("Vertiefungsrichtung")
-        else:
-            vertiefung = vertiefung + float("Vertiefungsrichtung")
-
-    fig = px.bar(x=x, y=y, labels={"x": "Vertiefungsrichtung",
-                                   "y": "ECTS"},
-                 title="Anzahl ECTS pro Vertiefungsrichtung")
-
-    div = plot(fig, output_type="div")
-
-    summe_ects = list(vertiefung.values())
-    summe = 0
-    for einzel in summe_ects:
-        summe += float(einzel)
-
-    ECTS = 0
-    if request.method == 'POST':
-
-    # gehört ins rendertemplate für die attribute, viz_div=div, vertiefung=vertiefung, total=summe
-
-    return render_template("analyse.html")
-    """
 
 @app.route("/about")
 def about():
