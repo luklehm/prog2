@@ -1,38 +1,47 @@
 {
-    "2022-05-07 15:30:35.882573": {
+    "2022-05-16 14:49:41.757446": {
         "Name": "Prog",
         "ECTS": "4",
-        "Dozent": "Franz M.",
+        "Dozent": "F. Odoni",
         "Semester": "3.",
-        "Note": "4",
-        "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
-        "Bewertung": "4"
+        "Note": "5",
+        "Vertiefungsrichtung": "Information Technology",
+        "Bewertung": "7"
     },
-    "2022-05-07 15:31:31.217869": {
-        "Name": "UX/UI",
+    "2022-05-16 14:50:20.188589": {
+        "Name": "REQE",
         "ECTS": "4",
-        "Dozent": "Josef M.",
+        "Dozent": "M. XY",
+        "Semester": "4.",
+        "Note": "3",
+        "Vertiefungsrichtung": "Digital Innovation",
+        "Bewertung": "9"
+    },
+    "2022-05-16 14:52:03.728240": {
+        "Name": "Projektmanagement",
+        "ECTS": "4",
+        "Dozent": "V. RR",
+        "Semester": "4.",
+        "Note": "5",
+        "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
+        "Bewertung": "6"
+    },
+    "2022-05-16 15:04:33.643045": {
+        "Name": "xy",
+        "ECTS": "4",
+        "Dozent": "df",
+        "Semester": "4.",
+        "Note": "3",
+        "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
+        "Bewertung": "6"
+    },
+    "2022-05-16 15:05:02.924007": {
+        "Name": "dsf",
+        "ECTS": "2",
+        "Dozent": "Hans",
         "Semester": "4.",
         "Note": "5",
         "Vertiefungsrichtung": "User Experience",
-        "Bewertung": "5"
-    },
-    "2022-05-07 15:32:37.036092": {
-        "Name": "Requirement Engineering ",
-        "ECTS": "4",
-        "Dozent": "Sandra Z.",
-        "Semester": "4.",
-        "Note": "5",
-        "Vertiefungsrichtung": "Information Technology",
-        "Bewertung": "5"
-    },
-    "2022-05-07 16:13:39.809000": {
-        "Name": "Design Thinking",
-        "ECTS": "4",
-        "Dozent": "Hans P.",
-        "Semester": "4.",
-        "Note": "6",
-        "Vertiefungsrichtung": "Digital Innovation",
-        "Bewertung": "6"
+        "Bewertung": "10"
     }
 }

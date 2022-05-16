@@ -4,15 +4,6 @@ from flask import request
 import daten
 import plotly.express as px
 from plotly.offline import plot
-import pandas as pd
-
-
-
-
-from rechnen.steuern import berechnen
-from rechnen.steuern import abgaben
-
-from datetime import datetime
 
 app = Flask("Notenrechner")
 
@@ -63,44 +54,49 @@ def meine_noten():
             if eintrag[filter_key] == filter_value:
                 filter_liste.append(eintrag)
 
+    lenght = str(len(eingabe))
+
+    # Zum Berechnen der Anzahl absolvierten ECTS
     total_ects = {}
-    for key, values in eingabe.items():
-        ects = values['ECTS']
+    for EE, FF in eingabe.items():
+        ects = FF['ECTS']
 
         if not total_ects.get(ects):
-            total_ects[ects] = float(values['ECTS'])
+            total_ects[ects] = float(FF['ECTS'])
         else:
-            total_ects[ects] = float(total_ects[ects]) + float(values['ECTS'])
+            total_ects[ects] = float(total_ects[ects]) + float(FF['ECTS'])
 
-    for key, value in total_ects.items():
-        total = key
+    for AA, MM in total_ects.items():
+        total = AA
 
+    # Zum Berechnen des Durchschnitts der Noten
     durchschnitt_noten = {}
-    for key, values in eingabe.items():
-        note = str(values['ECTS'])
+    for XX, YY in eingabe.items():
+        note = str(YY['ECTS'])
 
         if not durchschnitt_noten.get(note):
-            durchschnitt_noten[note] = float(values['Note'])
+            durchschnitt_noten[note] = float(YY['Note'])
         else:
-            durchschnitt_noten[note] = float(durchschnitt_noten[note]) + float(values['Note'])
+            durchschnitt_noten[note] = float(durchschnitt_noten[note]) + float(YY['Note'])
 
-    for key, xy in durchschnitt_noten.items():
-        durchschnitt = float(xy) / float(total)
+    for TT, xy in durchschnitt_noten.items():
+        durchschnitt = float(xy) / float(lenght)
 
+    # Zum Berechnen des Durchschnitts der Bewertungen
     durchschnitt_bewertung = {}
-    for key, values in eingabe.items():
-        bewertung = str(values['ECTS'])
+    for OO, PP in eingabe.items():
+        bewertung = str(PP['ECTS'])
 
         if not durchschnitt_bewertung.get(bewertung):
-            durchschnitt_bewertung[bewertung] = float(values['Bewertung'])
+            durchschnitt_bewertung[bewertung] = float(PP['Bewertung'])
         else:
-            durchschnitt_bewertung[bewertung] = float(durchschnitt_bewertung[bewertung]) + float(values['Bewertung'])
+            durchschnitt_bewertung[bewertung] = float(durchschnitt_bewertung[bewertung]) + float(PP['Bewertung'])
 
-        for key, bew, in durchschnitt_bewertung.items():
-            dur_bew = float(bew) / float(total)
+        for QQ, bew, in durchschnitt_bewertung.items():
+            dur_bew = float(bew) / float(lenght)
 
-
-    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, total_ects=total_ects, durchschnitt=durchschnitt, bewertung=dur_bew)
+    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert,
+                           total_ects=total_ects, durchschnitt=durchschnitt, bewertung=dur_bew)
 
 
 # Da habe ich keine Ahnung was schreiben und muss ich morgen selbst nochmal anschauen
@@ -119,22 +115,22 @@ def analyse():
         else:
             ects[vertiefung_] = float(ects[vertiefung_]) + float(values['ECTS'])
 
-
     x = list(ects.keys())
     y = list(ects.values())
 
-    fig = px.bar(x=x, y=y, labels={"x": "Vertiefungsrichtung",
-                                   "y": "ECTS"},
-                 title="Anzahl ECTS pro Vertiefungsrichtung")
+    fig = px.line(x=x, y=[8, 8, 8, 8], color=px.Constant("Ziel ECTS"),
+                  labels=dict(x="Vertiefungsrichtung", y="ECTS", color="Legende"))
+    fig.add_bar(x=x, y=y, name="Ist ECTS")
 
     div = plot(fig, output_type="div")
-    
+
     return render_template("analyse.html", div=div)
 
 
 @app.route("/about")
 def about():
     return render_template("about.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
