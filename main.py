@@ -73,7 +73,7 @@ def meine_noten():
             total_ects[ects] = float(total_ects[ects]) + float(values['ECTS'])
 
     for key, value in total_ects.items():
-        total = value
+        total = key
 
     durchschnitt_noten = {}
     for key, values in eingabe.items():
@@ -84,12 +84,23 @@ def meine_noten():
         else:
             durchschnitt_noten[note] = float(durchschnitt_noten[note]) + float(values['Note'])
 
-    for key, value in durchschnitt_noten.items():
-        durchschnitt = float(value) / float(total) #Das funktioniert so noch nicht, ich rechne hier die Noten gesamt durch die ECTS gesamt
-        #Man muss aber die Noten gesammt durch die Anzahl Einträge rechnen.
+    for key, xy in durchschnitt_noten.items():
+        durchschnitt = float(xy) / float(total)
+
+    durchschnitt_bewertung = {}
+    for key, values in eingabe.items():
+        bewertung = str(values['ECTS'])
+
+        if not durchschnitt_bewertung.get(bewertung):
+            durchschnitt_bewertung[bewertung] = float(values['Bewertung'])
+        else:
+            durchschnitt_bewertung[bewertung] = float(durchschnitt_bewertung[bewertung]) + float(values['Bewertung'])
+
+        for key, bew, in durchschnitt_bewertung.items():
+            dur_bew = float(bew) / float(total)
 
 
-    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, total_ects=total_ects, durchschnitt=durchschnitt)
+    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, total_ects=total_ects, durchschnitt=durchschnitt, bewertung=dur_bew)
 
 
 # Da habe ich keine Ahnung was schreiben und muss ich morgen selbst nochmal anschauen
@@ -126,4 +137,4 @@ def about():
     return render_template("about.html")
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5001)
