@@ -105,7 +105,10 @@ def meine_noten():
 @app.route("/analyse", methods=['GET', 'POST'])
 def analyse():
     analyse = daten.noten_laden()
-    ects = {}
+    ects = {"Digital Innovation": 0.0,
+            "Information Technology": 0.0,
+            "Sozial- und Methodenkompetenz": 0.0,
+            "User Experience": 0.0}
 
     for key, values in analyse.items():
         vertiefung_ = values['Vertiefungsrichtung']
