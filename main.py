@@ -67,7 +67,7 @@ def meine_noten():
             total_ects[ects] = float(total_ects[ects]) + float(FF['ECTS'])
 
     for AA, MM in total_ects.items():
-        total = AA
+            total = AA
 
     # Zum Berechnen des Durchschnitts der Noten
     durchschnitt_noten = {}
@@ -95,8 +95,7 @@ def meine_noten():
         for QQ, bew, in durchschnitt_bewertung.items():
             dur_bew = float(bew) / float(lenght)
 
-    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert,
-                           total_ects=total_ects, durchschnitt=durchschnitt, bewertung=dur_bew)
+    #return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, total_ects=total_ects, durchschnitt=durchschnitt, bewertung=dur_bew)
 
 
 # Da habe ich keine Ahnung was schreiben und muss ich morgen selbst nochmal anschauen
@@ -105,6 +104,7 @@ def meine_noten():
 @app.route("/analyse", methods=['GET', 'POST'])
 def analyse():
     analyse = daten.noten_laden()
+    #Diagramm für die Summe ECTS pro Modulgruppe
     ects = {"Digital Innovation": 0.0,
             "Information Technology": 0.0,
             "Sozial- und Methodenkompetenz": 0.0,
@@ -127,6 +127,7 @@ def analyse():
 
     div = plot(fig, output_type="div")
 
+    #Diagramm für die Bewertungen pro Modulgruppe
     bewertung = {"Digital Innovation": 0.0,
                 "Information Technology": 0.0,
                 "Sozial- und Methodenkompetenz": 0.0,
