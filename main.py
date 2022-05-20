@@ -127,7 +127,27 @@ def analyse():
 
     div = plot(fig, output_type="div")
 
-    return render_template("analyse.html", div=div)
+    bewertung = {"Digital Innovation": 0.0,
+                "Information Technology": 0.0,
+                "Sozial- und Methodenkompetenz": 0.0,
+                "User Experience": 0.0}
+
+    for key, values in analyse.items():
+        bewer = values['Vertiefungsrichtung']
+
+        if not ects.get(bewer):
+            bewertung[bewer] = float(values['Bewertung'])
+        else:
+            bewertung[bewer] = float(ects[bewer]) + float(values['Bewertung'])
+
+    x = list(bewertung.keys())
+    y = list(bewertung.values())
+
+    fig = px.bar(x=x, y=y, labels=dict(x="Vertiefungsrichtung", y="Bewertungen"))
+
+    div2 = plot(fig, output_type="div")
+
+    return render_template("analyse.html", div=div, div2=div2)
 
 
 @app.route("/about")
@@ -136,4 +156,4 @@ def about():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5000)
