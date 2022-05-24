@@ -150,11 +150,5 @@ def analyse():
 
     return render_template("analyse.html", div=div, div2=div2)
 
-
-@app.route("/about")
-def about():
-    return render_template("about.html")
-
-
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
