@@ -45,7 +45,7 @@ import json
 from datetime import datetime
 ```
 
-###Funktionen des Notenrechners
+### Funktionen des Notenrechners
 
 **Home:**           Das ist die Index Seite. Hier findest du eine Übersicht des Projekts und man hat die Möglichkeit seine gespeicherten Noten anzuschauen oder eine neue Note/Modul hinzuzufügen.
 
