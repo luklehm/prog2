@@ -31,6 +31,7 @@ Dieses Flussdiagramm zeigt den Prozess des Notenrechners. Das Flussdiagramm hat 
 Damit der Notenrechner funktioniert muss man in der main.py Flask und Plotly installiert haben.
 In die daten.py werden die gespeicherten Noten von einträge.json ein- und ausgespielt.
 
+
 ```
 from flask import Flask
 from flask import render_template
