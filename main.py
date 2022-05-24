@@ -95,7 +95,7 @@ def meine_noten():
         for QQ, bew, in durchschnitt_bewertung.items():
             dur_bew = float(bew) / float(lenght)
 
-    #return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, total_ects=total_ects, durchschnitt=durchschnitt, bewertung=dur_bew)
+    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, total_ects=total_ects, durchschnitt=durchschnitt, bewertung=dur_bew)
 
 
 # Da habe ich keine Ahnung was schreiben und muss ich morgen selbst nochmal anschauen
