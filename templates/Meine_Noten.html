@@ -1,116 +1,115 @@
 {% include "header.html" %}
 {% block content %}
 <body>
-    <main class="px-md-5">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3">
-            <h1 class="h2">Meine Noten</h1>
-        </div>
-        <br>
+    <main>
+        <div class="container">
+            <h1>Meine Noten</h1><br>
 
-        <form method="POST">
-            Möchtest du gerne nach einer bestimmten Kategorie filtern, wähle im Dropdown bitte die ensprechende Kategorie an.<br><br>
-            <div class="row g-3">
-                <div class="form-group col-3">
-                    <label for="inputKategorie">Vertiefungsrichtung</label>
-                    <select id="inputKategorie" class="form-control" name="vertiefungsrichtung">
-                        <option selected>Kategorie auswählen...</option>
-                        <option>Sozial- und Methodenkompetenz</option>
-                        <option>Digital Innovation</option>
-                        <option>Information Technology</option>
-                        <option>User Experience</option>
-                    </select>
+            <form method="POST">
+                Möchtest du gerne nach einer bestimmten Kategorie filtern, wähle im Dropdown bitte die entsprechende Kategorie an.<br><br>
+                <div class="row g-3">
+                    <div class="form-group col-3">
+                        <label for="inputKategorie">Vertiefungsrichtung</label>
+                        <select id="inputKategorie" class="form-control" name="vertiefungsrichtung">
+                            <option selected>Vertiefung auswählen...</option>
+                            <option>Sozial- und Methodenkompetenz</option>
+                            <option>Digital Innovation</option>
+                            <option>Information Technology</option>
+                            <option>User Experience</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="row g-3">
-                <div class="col">
-                    <button type="submit" class="btn btn-primary">Suchen</button>
-                    <a href="{{ url_for('meine_noten') }}" type="reset" class="btn btn-danger" role="button">Zurücksetzen</a>
+                <div class="row g-3">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">Suchen</button>
+                        <a href="{{ url_for('meine_noten') }}" type="reset" class="btn btn-danger" role="button">Zurücksetzen</a>
+                    </div>
                 </div>
-            </div>
-            <br>
-        </form><br>
+                <br>
+            </form><br>
 
-        <div class="column">
-            {% if ver %}
-            {% if user %}
+            <div class="column">
+                {% if ver %}
+                {% if user %}
+                <table class="table">
+                  <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">ECTS</th>
+                        <th scope="col">Dozent</th>
+                        <th scope="col">Semester</th>
+                        <th scope="col">Note</th>
+                        <th scope="col">Vertiefungsrichtung</th>
+                        <th scope="col">Bewertung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for inhalt in user %}
+                        <tr>
+                            {% for key, value in inhalt.items()%}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+                {% else %}
+                Kein Eintrag zu dieser Kategorie gefunden.
+                {% endif %}
+                {% endif %}
+            </div>
+            {% if not ver %}
             <table class="table">
-              <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">ECTS</th>
-                    <th scope="col">Dozent</th>
-                    <th scope="col">Semester</th>
-                    <th scope="col">Note</th>
-                    <th scope="col">Vertiefungsrichtung</th>
-                    <th scope="col">Bewertung</th>
-                </tr>
-              </thead>
-              <tbody>
-              {% for inhalt in user %}
+                <thead>
                     <tr>
-                        {% for key, value in inhalt.items()%}
-                        <td>{{ value }}</td>
-                        {% endfor %}
+                        <th scope="col">Name</th>
+                        <th scope="col">ECTS</th>
+                        <th scope="col">Dozent</th>
+                        <th scope="col">Semester</th>
+                        <th scope="col">Note</th>
+                        <th scope="col">Vertiefungsrichtung</th>
+                        <th scope="col">Bewertung</th>
                     </tr>
-              {% endfor %}
-              </tbody>
-            </table>
-            {% else %}
-            Kein Eintrag zu dieser Kategorie gefunden.
-            {% endif %}
-            {% endif %}
-        </div>
-        {% if not ver %}
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">ECTS</th>
-                    <th scope="col">Dozent</th>
-                    <th scope="col">Semester</th>
-                    <th scope="col">Note</th>
-                    <th scope="col">Vertiefungsrichtung</th>
-                    <th scope="col">Bewertung</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- for-Condition -->
-                {% for key, value_dict in neuedaten.items()%}
-                    <tr>
-                        {% for key, value in value_dict.items()%}
-                        <td>{{ value }}</td>
-                        {% endfor %}
-                    </tr>
-                <!--</div>-->
-                {% endfor %}
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th scope="row">Total</th>
-                    {% for key, value in total_ects.items() %}
-                    <td>{{ value }}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                </thead>
+                <tbody>
+                    <!-- for-Condition -->
+                    {% for key, value_dict in neuedaten.items()%}
+                        <tr>
+                            {% for key, value in value_dict.items()%}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                    <!--</div>-->
                     {% endfor %}
-                </tr>
-                <tr>
-                    <th scope="row">Durchschnitt</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>{{ durchschnitt }}</td>
-                    <td></td>
-                    <td>{{ bewertung }}</td>
-                </tr>
-            </tfoot>
-        {% endif %}
-        </table>
-        <br>
-        <div>
-            <a class="nav-item nav-link col-sm-3 mb-4 w-40 btn btn btn-lg" href="{{ url_for('analyse') }}" role="button" type="submit">Noten analysieren</a>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row">Total</th>
+                        {% for key, value in total_ects.items() %}
+                        <td>{{ value }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <th scope="row">Durchschnitt</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ durchschnitt }}</td>
+                        <td></td>
+                        <td>{{ bewertung }}</td>
+                    </tr>
+                </tfoot>
+            {% endif %}
+            </table>
+            <br>
+            <div>
+                <a class="nav-item nav-link col-sm-3 mb-4 w-40 btn btn btn-lg" href="{{ url_for('analyse') }}" role="button" type="submit">Noten analysieren</a>
+            </div>
         </div>
     </main>
 {% endblock %}
