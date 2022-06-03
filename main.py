@@ -66,9 +66,6 @@ def meine_noten():
         else:
             total_ects[ects] = float(total_ects[ects]) + float(FF['ECTS'])
 
-    for AA, MM in total_ects.items():
-            total = AA
-
     # Zum Berechnen des Durchschnitts der Noten
     durchschnitt_noten = {}
     for XX, YY in eingabe.items():

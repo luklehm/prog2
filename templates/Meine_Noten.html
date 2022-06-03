@@ -9,7 +9,7 @@
                 Möchtest du gerne nach einer bestimmten Kategorie filtern, wähle im Dropdown bitte die entsprechende Kategorie an.<br><br>
                 <div class="row g-3">
                     <div class="form-group col-3">
-                        <label for="inputKategorie">Vertiefungsrichtung</label>
+                        <h3><label for="inputKategorie">Vertiefungsrichtung</label></h3>
                         <select id="inputKategorie" class="form-control" name="vertiefungsrichtung">
                             <option selected>Vertiefung auswählen...</option>
                             <option>Sozial- und Methodenkompetenz</option>
@@ -86,7 +86,7 @@
                     <tr>
                         <th scope="row">Total</th>
                         {% for key, value in total_ects.items() %}
-                        <td>{{ value }}</td>
+                        <td>{{'%0.1f'| format(value|float)}}</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -99,9 +99,9 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>{{ durchschnitt }}</td>
+                        <td>{{'%0.1f'| format(durchschnitt|float)}}</td>
                         <td></td>
-                        <td>{{ bewertung }}</td>
+                        <td>{{'%0.1f'| format(bewertung|float)}}</td>
                     </tr>
                 </tfoot>
             {% endif %}
