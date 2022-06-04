@@ -5,9 +5,11 @@ import daten
 import plotly.express as px
 from plotly.offline import plot
 
+
 app = Flask("Notenrechner")
 
 
+# Startseite
 @app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
@@ -15,6 +17,7 @@ def home():
     return render_template("index.html")
 
 
+#Noteneingabe - Hier werden neue Module erfasst
 @app.route("/input", methods=["GET", "POST"])
 def input():
     if request.method == 'POST':
@@ -34,6 +37,7 @@ def input():
     return render_template('input.html')
 
 
+#Meine gespeicherten Noten/Module - Hier hat der User eine Übersicht seiner gespeicherten Noten/Module
 @app.route("/meine_noten", methods=['GET', 'POST'])
 def meine_noten():
     eingabe = daten.noten_laden()
@@ -54,7 +58,7 @@ def meine_noten():
             if eintrag[filter_key] == filter_value:
                 filter_liste.append(eintrag)
 
-    lenght = str(len(eingabe))
+    lenght = len(eingabe) #Anzahl Einträge im Json
 
     # Zum Berechnen der Anzahl absolvierten ECTS
     total_ects = {}
@@ -95,12 +99,11 @@ def meine_noten():
     return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, total_ects=total_ects, durchschnitt=durchschnitt, bewertung=dur_bew)
 
 
-# Da habe ich keine Ahnung was schreiben und muss ich morgen selbst nochmal anschauen
-# Sollte jetzt soweit gehen aber idk
-
+#Analyse mit Diagrammen (Plotly) zur visuellen Veranschaulichung
 @app.route("/analyse", methods=['GET', 'POST'])
 def analyse():
     analyse = daten.noten_laden()
+
     #Diagramm für die Summe ECTS pro Modulgruppe
     ects = {"Digital Innovation": 0.0,
             "Information Technology": 0.0,
@@ -126,9 +129,9 @@ def analyse():
 
     #Diagramm für die Bewertungen pro Modulgruppe
     bewertung = {"Digital Innovation": 0.0,
-                "Information Technology": 0.0,
-                "Sozial- und Methodenkompetenz": 0.0,
-                "User Experience": 0.0}
+                 "Information Technology": 0.0,
+                 "Sozial- und Methodenkompetenz": 0.0,
+                 "User Experience": 0.0}
 
     for key, values in analyse.items():
         bewer = values['Vertiefungsrichtung']
