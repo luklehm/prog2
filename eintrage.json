@@ -2,46 +2,10 @@
     "2022-06-02 10:44:07.188850": {
         "Name": "Programmieren 2",
         "ECTS": "4",
-        "Dozent": "Odoni",
+        "Dozent": "F. Odoni",
         "Semester": "4.",
         "Note": "6",
         "Vertiefungsrichtung": "Information Technology",
-        "Bewertung": "10"
-    },
-    "2022-06-02 13:51:57.515964": {
-        "Name": "xy",
-        "ECTS": "4",
-        "Dozent": "XY",
-        "Semester": "4.",
-        "Note": "3",
-        "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
-        "Bewertung": "5"
-    },
-    "2022-06-02 13:52:31.240524": {
-        "Name": "xy",
-        "ECTS": "4",
-        "Dozent": "xy",
-        "Semester": "4.",
-        "Note": "5",
-        "Vertiefungsrichtung": "User Experience",
-        "Bewertung": "5"
-    },
-    "2022-06-02 13:58:38.619701": {
-        "Name": "xy",
-        "ECTS": "4",
-        "Dozent": "xy",
-        "Semester": "4.",
-        "Note": "6",
-        "Vertiefungsrichtung": "Information Technology",
-        "Bewertung": "7"
-    },
-    "2022-06-02 13:59:01.353464": {
-        "Name": "xy",
-        "ECTS": "4",
-        "Dozent": "xy",
-        "Semester": "4.",
-        "Note": "6",
-        "Vertiefungsrichtung": "Digital Innovation",
         "Bewertung": "10"
     }
 }

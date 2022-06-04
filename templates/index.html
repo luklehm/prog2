@@ -1,18 +1,15 @@
 {% include "header.html" %}
-
 <body>
-<main>
-    <div class="container">
-        <h1>Notenrechner</h1><br>
-        <p class="fs-5 md-8">Behalte den Überblick über deine Module, Noten und ECTS. Als Student hat man es nicht immer einfach, mann muss seine Noten im Griff haben, seine Finanzen unter kontrolle und Freunde & Familie sollten auch nicht zu kurz kommen.</p>
-        <h4>Der Notenrechner hilft dir dabei!</h4><br>
-        <p>Möchtest du gerne eine neue Note hinzufügen oder die Übersicht deiner Noten sehen?</p>
+    <main>
+        <div class="container">
+            <h1>Notenrechner</h1><br>
+            <p class="fs-5 md-8">Behalte den Überblick über deine Module, Noten und ECTS. Als Student hat man es nicht immer einfach, mann muss seine Noten im Griff haben, seine Finanzen unter kontrolle und Freunde & Familie sollten auch nicht zu kurz kommen.</p>
+            <h4>Der Notenrechner hilft dir dabei!</h4><br>
+            <p>Möchtest du gerne eine neue Note hinzufügen oder die Übersicht deiner Noten sehen?</p>
 
-        <a class="nav-item nav-link col-sm-4 mb-4 w-40 btn btn btn-lg" href="{{ url_for('input') }}" role="button" type="submit">Neue Note hinzufügen</a>
-        <a class="nav-item nav-link col-sm-4 mb-4 w-40 btn btn btn-lg" href="{{ url_for('meine_noten') }}" role="button" type="submit">Meine Noten</a>
-        </ul>
-    </div>
-</main>
+            <a class="nav-item nav-link col-sm-4 mb-4 w-40 btn btn btn-lg" href="{{ url_for('input') }}" role="button" type="submit">Neue Note hinzufügen</a>
+            <a class="nav-item nav-link col-sm-4 mb-4 w-40 btn btn btn-lg" href="{{ url_for('meine_noten') }}" role="button" type="submit">Meine Noten</a>
+        </div>
+    </main>
 </body>
-
 {% include "footer.html" %}
