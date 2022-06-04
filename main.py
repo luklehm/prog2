@@ -17,7 +17,7 @@ def home():
     return render_template("index.html")
 
 
-#Noteneingabe - Hier werden neue Module erfasst
+# Noteneingabe - hier werden neue Module erfasst
 @app.route("/input", methods=["GET", "POST"])
 def input():
     if request.method == 'POST':
@@ -37,7 +37,7 @@ def input():
     return render_template('input.html')
 
 
-#Meine gespeicherten Noten/Module - Hier hat der User eine Übersicht seiner gespeicherten Noten/Module
+# Meine gespeicherten Noten/Module - hier hat der User eine Übersicht seiner gespeicherten Noten/Module
 @app.route("/meine_noten", methods=['GET', 'POST'])
 def meine_noten():
     eingabe = daten.noten_laden()
@@ -58,7 +58,8 @@ def meine_noten():
             if eintrag[filter_key] == filter_value:
                 filter_liste.append(eintrag)
 
-    lenght = len(eingabe) #Anzahl Einträge im Json
+    # Anzahl Einträge im Json
+    lenght = len(eingabe)
 
     # Zum Berechnen der Anzahl absolvierten ECTS
     total_ects = {}
@@ -81,7 +82,7 @@ def meine_noten():
             durchschnitt_noten[note] = float(durchschnitt_noten[note]) + float(YY['Note'])
 
     for TT, xy in durchschnitt_noten.items():
-        durchschnitt = float(xy) / float(lenght)
+        durchschnitt__ = float(xy) / float(lenght)
 
     # Zum Berechnen des Durchschnitts der Bewertungen
     durchschnitt_bewertung = {}
@@ -96,15 +97,15 @@ def meine_noten():
         for QQ, bew, in durchschnitt_bewertung.items():
             dur_bew = float(bew) / float(lenght)
 
-    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, total_ects=total_ects, durchschnitt=durchschnitt, bewertung=dur_bew)
+    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, total_ects=total_ects, durchschnitt=durchschnitt__, bewertung=dur_bew)
 
 
-#Analyse mit Diagrammen (Plotly) zur visuellen Veranschaulichung
+# Analyse mit Diagrammen (Plotly) zur visuellen Veranschaulichung
 @app.route("/analyse", methods=['GET', 'POST'])
 def analyse():
     analyse = daten.noten_laden()
 
-    #Diagramm für die Summe ECTS pro Modulgruppe
+    # Diagramm für die Summe ECTS pro Modulgruppe
     ects = {"Digital Innovation": 0.0,
             "Information Technology": 0.0,
             "Sozial- und Methodenkompetenz": 0.0,
@@ -127,7 +128,7 @@ def analyse():
 
     div = plot(fig, output_type="div")
 
-    #Diagramm für die Bewertungen pro Modulgruppe
+    # Diagramm für die Bewertungen pro Modulgruppe
     bewertung = {"Digital Innovation": 0.0,
                  "Information Technology": 0.0,
                  "Sozial- und Methodenkompetenz": 0.0,
@@ -149,6 +150,7 @@ def analyse():
     div2 = plot(fig, output_type="div")
 
     return render_template("analyse.html", div=div, div2=div2)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
