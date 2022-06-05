@@ -5,7 +5,7 @@
         <div class="container">
             <h1>Meine Noten</h1><br>
             <form method="POST">
-                Möchtest du gerne nach einer bestimmten Kategorie filtern, wähle im Dropdown bitte die entsprechende Kategorie an.<br><br>
+                Möchtest du gerne nach der Vertiefungsrichtung oder dem Semester filtern, wähle im Dropdown bitte jeweils einen der beiden Filter an.<br><br>
                 <div class="row g-3">
                     <div class="form-group col-3">
                         <h3><label for="inputKategorie">Vertiefungsrichtung</label></h3>
@@ -15,6 +15,18 @@
                             <option>Digital Innovation</option>
                             <option>Information Technology</option>
                             <option>User Experience</option>
+                        </select><br>
+                        <h3><label for="inputKategorie">Semester</label></h3>
+                        <select id="inputSemester" class="form-control" name="semester">
+                            <option selected>Semester auswählen...</option>
+                            <option>1.</option>
+                            <option>2.</option>
+                            <option>3.</option>
+                            <option>4.</option>
+                            <option>5.</option>
+                            <option>6.</option>
+                            <option>7.</option>
+                            <option>8.</option>
                         </select>
                     </div>
                 </div>
@@ -32,6 +44,7 @@
                 {% if user %}
                 <table class="table">
                   <thead>
+                  <h3>Vertiefungsrichtung</h3>
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">ECTS</th>
@@ -52,8 +65,33 @@
                   {% endfor %}
                   </tbody>
                 </table>
-                {% else %}
-                Kein Eintrag zu dieser Kategorie gefunden.
+                {% endif %}
+                {% endif %}
+                {% if sem %}
+                {% if user_ %}
+                <table class="table">
+                  <thead>
+                  <h3>Semester</h3>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">ECTS</th>
+                        <th scope="col">Dozent</th>
+                        <th scope="col">Semester</th>
+                        <th scope="col">Note</th>
+                        <th scope="col">Vertiefungsrichtung</th>
+                        <th scope="col">Bewertung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for inhalt in user_ %}
+                        <tr>
+                            {% for key, value in inhalt.items()%}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
                 {% endif %}
                 {% endif %}
             </div>

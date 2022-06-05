@@ -41,11 +41,17 @@ def input():
 @app.route("/meine_noten", methods=['GET', 'POST'])
 def meine_noten():
     eingabe = daten.noten_laden()
-    filter_liste = []
-    filter_value = ""
-    filter_key = ""
-    gefiltert = False
 
+    filter_liste = []
+    filter_liste_ = []
+    filter_value = ""
+    filter_value_ = ""
+    filter_key = ""
+    filter_key_ = ""
+    gefiltert = False
+    gefiltert_ = False
+
+    # Filter für die Vertiefungsrichtung
     if request.method == 'POST':
         gefiltert = True
         vertiefung = request.form['vertiefungsrichtung']
@@ -57,6 +63,19 @@ def meine_noten():
         for key, eintrag in eingabe.items():
             if eintrag[filter_key] == filter_value:
                 filter_liste.append(eintrag)
+
+    # Filter für die Semester
+    if request.method == 'POST':
+        gefiltert_ = True
+        semester = request.form['semester']
+
+        if semester != "":
+            filter_value_ = semester
+            filter_key_ = "Semester"
+
+        for key, eintrag in eingabe.items():
+            if eintrag[filter_key_] == filter_value_:
+                filter_liste_.append(eintrag)
 
     # Anzahl Einträge im Json
     lenght = len(eingabe)
@@ -97,7 +116,7 @@ def meine_noten():
         for QQ, bew, in durchschnitt_bewertung.items():
             dur_bew = float(bew) / float(lenght)
 
-    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, total_ects=total_ects, durchschnitt=durchschnitt__, bewertung=dur_bew)
+    return render_template("Meine_Noten.html", neuedaten=eingabe, user=filter_liste, ver=gefiltert, user_=filter_liste_, sem=gefiltert_, total_ects=total_ects, durchschnitt=durchschnitt__, bewertung=dur_bew)
 
 
 # Analyse mit Diagrammen (Plotly) zur visuellen Veranschaulichung

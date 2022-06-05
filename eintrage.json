@@ -1,11 +1,146 @@
 {
-    "2022-06-02 10:44:07.188850": {
-        "Name": "Programmieren 2",
+    "2022-06-05 08:35:08.671955": {
+        "Name": "Business English Vantage B2",
+        "ECTS": "4",
+        "Dozent": "N. McLauchlan",
+        "Semester": "2.",
+        "Note": "5",
+        "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
+        "Bewertung": "6"
+    },
+    "2022-06-05 08:36:20.406425": {
+        "Name": "Mathematik",
+        "ECTS": "4",
+        "Dozent": "G. Reinprecht",
+        "Semester": "1.",
+        "Note": "4",
+        "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
+        "Bewertung": "6"
+    },
+    "2022-06-05 08:37:00.377683": {
+        "Name": "Recht",
+        "ECTS": "4",
+        "Dozent": "div.",
+        "Semester": "3.",
+        "Note": "4",
+        "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
+        "Bewertung": "6"
+    },
+    "2022-06-05 08:37:47.069727": {
+        "Name": "Psychologie & Ethik",
+        "ECTS": "4",
+        "Dozent": "div.",
+        "Semester": "3.",
+        "Note": "4",
+        "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
+        "Bewertung": "7"
+    },
+    "2022-06-05 08:39:13.174852": {
+        "Name": "Statistik",
+        "ECTS": "4",
+        "Dozent": "F. Kronthaler",
+        "Semester": "2.",
+        "Note": "4",
+        "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
+        "Bewertung": "7"
+    },
+    "2022-06-05 08:39:29.932461": {
+        "Name": "Wissenschaftliches Arbeiten",
+        "ECTS": "4",
+        "Dozent": "xy",
+        "Semester": "1.",
+        "Note": "5.5",
+        "Vertiefungsrichtung": "Sozial- und Methodenkompetenz",
+        "Bewertung": "7"
+    },
+    "2022-06-05 08:41:28.875632": {
+        "Name": "ABWL",
+        "ECTS": "4",
+        "Dozent": "M. Forster",
+        "Semester": "2.",
+        "Note": "4",
+        "Vertiefungsrichtung": "Digital Innovation",
+        "Bewertung": "8"
+    },
+    "2022-06-05 08:43:04.404506": {
+        "Name": "E-Business Management",
+        "ECTS": "4",
+        "Dozent": "N. Tschanz",
+        "Semester": "1.",
+        "Note": "4",
+        "Vertiefungsrichtung": "Digital Innovation",
+        "Bewertung": "8"
+    },
+    "2022-06-05 08:43:50.241881": {
+        "Name": "SGDU",
+        "ECTS": "4",
+        "Dozent": "T. Lehmkuhl",
+        "Semester": "2.",
+        "Note": "5",
+        "Vertiefungsrichtung": "Digital Innovation",
+        "Bewertung": "8"
+    },
+    "2022-06-05 08:45:43.525847": {
+        "Name": "ARIS",
+        "ECTS": "4",
+        "Dozent": "P. Ziegler",
+        "Semester": "3.",
+        "Note": "4",
+        "Vertiefungsrichtung": "Information Technology",
+        "Bewertung": "5"
+    },
+    "2022-06-05 08:46:30.337112": {
+        "Name": "Prog1",
         "ECTS": "4",
         "Dozent": "F. Odoni",
-        "Semester": "4.",
-        "Note": "6",
+        "Semester": "3.",
+        "Note": "4.5",
         "Vertiefungsrichtung": "Information Technology",
+        "Bewertung": "8"
+    },
+    "2022-06-05 08:46:56.883029": {
+        "Name": "Wirtschaftsinformatik",
+        "ECTS": "4",
+        "Dozent": "F. Weissgerber",
+        "Semester": "1.",
+        "Note": "4.5",
+        "Vertiefungsrichtung": "Information Technology",
+        "Bewertung": "6"
+    },
+    "2022-06-05 08:49:17.609333": {
+        "Name": "Design Introduction",
+        "ECTS": "4",
+        "Dozent": "H. Brockmann",
+        "Semester": "3.",
+        "Note": "5",
+        "Vertiefungsrichtung": "User Experience",
+        "Bewertung": "9"
+    },
+    "2022-06-05 08:49:41.078580": {
+        "Name": "Design Thinking",
+        "ECTS": "4",
+        "Dozent": "div.",
+        "Semester": "1.",
+        "Note": "6",
+        "Vertiefungsrichtung": "User Experience",
         "Bewertung": "10"
+    },
+    "2022-06-05 08:50:39.184672": {
+        "Name": "Digital Marketing",
+        "ECTS": "4",
+        "Dozent": "A. Schaer",
+        "Semester": "3.",
+        "Note": "4",
+        "Vertiefungsrichtung": "User Experience",
+        "Bewertung": "7"
+    },
+    "2022-06-05 08:51:20.415337": {
+        "Name": "Prototyping",
+        "ECTS": "4",
+        "Dozent": "T. Liebrenz",
+        "Semester": "2.",
+        "Note": "4.5",
+        "Vertiefungsrichtung": "User Experience",
+        "Bewertung": "8"
     }
 }
